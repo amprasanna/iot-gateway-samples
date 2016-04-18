@@ -9,3 +9,11 @@ Gateways are a specialized class of devices in Watson IoT Platform which serve a
 * Run a device management agent, so that it can be managed, also manage the devices connected to it
 
 Refer to the [documentation](https://docs.internetofthings.ibmcloud.com/gateways/mqtt.html) for more information about the Gateway support in Watson IoT Platform.
+
+----
+
+License
+-----------------------
+
+The library is shipped with Eclipse Public License and refer to the [License file] (https://github.com/ibm-messaging/iot-gateway-samples/blob/master/LICENSE) for more information about the licensing.
+
