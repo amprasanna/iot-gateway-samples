@@ -12,7 +12,15 @@ Refer to the [documentation](https://docs.internetofthings.ibmcloud.com/gateways
 
 ----
 
-License
+### Sample gateway scenario
+
+Following sample gateway scenario is implemented in the java samples section. Refer to the [java samples section](https://github.com/ibm-messaging/iot-gateway-samples/tree/master/java) for more information.
+
+![Alt text](./gateway-dm-diagram.png?raw=true "Sample Gateway scenario")
+
+----
+
+### License
 -----------------------
 
 The library is shipped with Eclipse Public License and refer to the [License file] (https://github.com/ibm-messaging/iot-gateway-samples/blob/master/LICENSE) for more information about the licensing.
