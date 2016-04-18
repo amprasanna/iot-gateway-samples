@@ -18,6 +18,7 @@ Following sample gateway scenario is implemented in the java samples section. Re
 
 ![Alt text](./gateway-dm-diagram.png?raw=true "Sample Gateway scenario")
 
+(This diagram is made with Fritzing.org)
 ----
 
 ### License
