@@ -109,3 +109,10 @@ Observe that the Application provides list of options to control one or more dev
 Also, In order to push a **firmware to a Gateway/device or reboot Gateway/device**, follow the [part-2 and part-3 of this recipe](https://developer.ibm.com/recipes/tutorials/raspberry-pi-as-managed-gateway-in-watson-iot-platform-part-2/). This shows how to push a firmware using the Watson IoT Platform dashboard.
 
 ----
+
+### License
+-----------------------
+
+The library is shipped with Eclipse Public License and refer to the [License file] (https://github.com/ibm-messaging/iot-gateway-samples/blob/master/LICENSE) for more information about the licensing.
+
+----
