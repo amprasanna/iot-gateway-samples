@@ -131,3 +131,10 @@ The Gateway support is demonstrated in this sample by connecting the Arduino Uno
     `mvn exec:java -Dexec.mainClass="com.ibm.iotf.sample.client.application.SampleApplication"`
 
 ----
+
+### License
+-----------------------
+
+The library is shipped with Eclipse Public License and refer to the [License file] (https://github.com/ibm-messaging/iot-gateway-samples/blob/master/LICENSE) for more information about the licensing.
+
+----
