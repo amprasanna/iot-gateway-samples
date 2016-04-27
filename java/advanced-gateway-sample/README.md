@@ -48,6 +48,8 @@ You must have installed the [Eclipse Maven plugin](http://www.eclipse.org/m2e/),
     
 * Import the advanced-gateway-sample project into eclipse using the File->Import option in eclipse.
 
+* Build the project
+
 #### Start Gateway Sample
 
 * Modify the **DMGatewaySample.properties** file with the gateway registration details that you noted in the previous step.
@@ -82,7 +84,7 @@ In order to control one or more devices, you need to start the **HomeApplication
 
     `mvn clean package`
     
-This will download the Java Client library for Watson IoT Platform (Currently its shipped as part of this sample, but soon it will be made available in maven central repository), download all required dependencies and starts the building process. Once built, the sample can be located in the target directory, for example, target\ibmiot-advanced-gateway-sample-0.0.1.jar.
+This will download the Java Client library for Watson IoT Platform and all required dependencies and starts the building process. Once built, the sample can be located in the target directory, for example, target\ibmiot-advanced-gateway-sample-0.0.1.jar.
 
 ----
 
@@ -93,8 +95,6 @@ This will download the Java Client library for Watson IoT Platform (Currently it
 * Run the sample using the following command,
 
     `mvn exec:java -Dexec.mainClass="com.ibm.iotf.sample.gateway.HomeGatewaySample"`
-
-**Note:** If there is an Error, try extracting the ibmwiotp.jar present in target/classes directory to the same location and run again. Remember the jar must be extracted in the same location. 
 
 * In order to control one or more devices, you need to start the **HomeApplication** present in the project. 
 
