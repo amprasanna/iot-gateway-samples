@@ -213,7 +213,13 @@ public class HomeGatewaySample {
 					System.out.println("<-- Checking if deviceType " + deviceType.getDeviceType() +" exists in Watson IoT Platform");
 					String dt = deviceType.getDeviceType();
 					try {
-						boolean exist = sample.apiClient.isDeviceTypeExist(dt);
+						boolean exist = false;
+						try {
+							exist = sample.apiClient.isDeviceTypeExist(dt);
+						} catch(Exception e) {
+							
+						}
+						
 						if (!exist) {
 							// device type has to be created in WIoTP
 							System.out.println("<-- Creating deviceType " + deviceType.getDeviceType() +" now..");
@@ -222,6 +228,7 @@ public class HomeGatewaySample {
 
 					} catch (IoTFCReSTException e) {
 						System.out.println("ERROR: unable to add manually device type " + deviceType.toString());
+						e.printStackTrace();
 					}
 				}
 
@@ -231,7 +238,10 @@ public class HomeGatewaySample {
 					try {
 						System.out.println("<-- Checking if device "+device.getDeviceId() +" with deviceType " +
 															device.getDeviceType() +" exists in Watson IoT Platform");
-						boolean exist = sample.mgdGateway.api().isDeviceExist(device.getDeviceType(), device.getDeviceId());
+						boolean exist = false;
+						try {
+							exist = sample.mgdGateway.api().isDeviceExist(device.getDeviceType(), device.getDeviceId());
+						} catch(Exception e) {}
 						if(!exist) {
 							System.out.println("<-- Creating device "+device.getDeviceId() +" with deviceType " +
 									device.getDeviceType() +" now..");
@@ -241,6 +251,7 @@ public class HomeGatewaySample {
 					} catch (IoTFCReSTException ex) {
 						
 						System.out.println("ERROR: unable to add manually device " + device.getDeviceId());
+						ex.printStackTrace();
 					}
 				}
 			}

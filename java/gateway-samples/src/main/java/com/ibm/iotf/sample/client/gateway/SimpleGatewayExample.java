@@ -38,8 +38,8 @@ public class SimpleGatewayExample {
 	// Present in the maven resource directory
 	private final static String PROPERTIES_FILE_NAME = "/gateway.properties";
 	
-	private final static String DEVICE_TYPE = "iotsampleType";
-	private final static String SIMULATOR_DEVICE_ID = "Arduino02";
+	private final static String DEVICE_TYPE = "iotsampleType2";
+	private final static String SIMULATOR_DEVICE_ID = "Arduino0301";
 	
 	private GatewayClient gwClient = null;
 	SystemObject obj = new SystemObject();
@@ -153,7 +153,12 @@ public class SimpleGatewayExample {
 	private void addDeviceType(String deviceType) throws IoTFCReSTException {
 		try {
 			System.out.println("<-- Checking if device type "+deviceType +" already created in Watson IoT Platform");
-			boolean exist = apiClient.isDeviceTypeExist(deviceType);
+			boolean exist = false;
+			
+			try {
+				exist = apiClient.isDeviceTypeExist(deviceType);
+			} catch(Exception e) {}
+			
 			if (!exist) {
 				System.out.println("<-- Adding device type "+deviceType + " now..");
 				// device type to be created in WIoTP
@@ -170,20 +175,26 @@ public class SimpleGatewayExample {
 	 * @throws IoTFCReSTException
 	 */
 	private void addDevice(String deviceType, String deviceId) throws IoTFCReSTException {
-		try {
-			System.out.println("<-- Checking if device " + deviceId +" with deviceType " +
+		
+		System.out.println("<-- Checking if device " + deviceId +" with deviceType " +
 					deviceType +" exists in Watson IoT Platform");
-			boolean exist = this.gwClient.api().isDeviceExist(deviceType, deviceId);
+		boolean exist = false;
+		try {
+			exist = this.gwClient.api().isDeviceExist(deviceType, deviceId);
+		} catch(Exception e) {}
+		
+		try {
 			if(!exist) {
 				System.out.println("<-- Creating device " + deviceId +" with deviceType " +
 						deviceType +" now..");
-				gwClient.api().registerDeviceUnderGateway(deviceType, deviceId,
+				this.apiClient.registerDeviceUnderGateway(deviceType, deviceId,
 						this.gwClient.getGWDeviceType(), 
 						this.gwClient.getGWDeviceId());
 			}
 		} catch (IoTFCReSTException ex) {
 			
 			System.out.println("ERROR: unable to add manually device " + deviceId);
+			ex.printStackTrace();
 		}
 	}	
 	

@@ -147,7 +147,11 @@ public class SampleRasPiGateway {
 	private void addDeviceType(String deviceType) throws IoTFCReSTException {
 		try {
 			System.out.println("<-- Checking if device type "+deviceType +" already created in Watson IoT Platform");
-			boolean exist = apiClient.isDeviceTypeExist(deviceType);
+			boolean exist = false;
+			
+			try {
+				exist = apiClient.isDeviceTypeExist(deviceType);
+			} catch(Exception e) {}
 			if (!exist) {
 				System.out.println("<-- Adding device type "+deviceType + " now..");
 				// device type to be created in WIoTP
@@ -167,7 +171,10 @@ public class SampleRasPiGateway {
 		try {
 			System.out.println("<-- Checking if device " + deviceId +" with deviceType " +
 					deviceType +" exists in Watson IoT Platform");
-			boolean exist = this.gwClient.api().isDeviceExist(deviceType, deviceId);
+			boolean exist = false;
+			try {
+				exist = this.gwClient.api().isDeviceExist(deviceType, deviceId);
+			} catch(Exception e) {}
 			if(!exist) {
 				System.out.println("<-- Creating device " + deviceId +" with deviceType " +
 						deviceType +" now..");
